@@ -1,14 +1,9 @@
-// src/redux/store.js
-import { configureStore } from '@reduxjs/toolkit';
-import dsBookReducer from './reducers';
+import { createStore } from "redux";
+import { rootReducer } from "./reducers";
 
-const store = configureStore({
-  reducer: {
-    books: dsBookReducer,
-  },
-  devTools: process.env.NODE_ENV !== 'production',
-});
+const store = createStore(
+  rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
-
-
-export default store;
+export default store
