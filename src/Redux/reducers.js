@@ -1,3 +1,4 @@
+
 import {
   ADD_DS_BOOK,
   SUB_DS_BOOK,
@@ -6,27 +7,29 @@ import {
   REMOVE_BOOK,
 } from "./actions";
 
-const initialState = {
-  dsBookCount: 0,
+
+
+const initialDsState = {
+  Count: 0,
   books: [],
 };
 
-export const rootReducer = (state = initialState, action) => {
+const dsBookReducer = (state = initialDsState, action) => {
   switch (action.type) {
     case ADD_DS_BOOK:
       return {
         ...state,
-        dsBookCount: state.dsBookCount + 1,
+        Count: state.Count + 1,
       };
     case SUB_DS_BOOK:
       return {
         ...state,
-        dsBookCount: Math.max(0, state.dsBookCount - 1),
+        Count: Math.max(0, state.Count - 1),
       };
     case INPUT_DS_BOOK:
       return {
         ...state,
-        dsBookCount: action.payload,
+        Count: action.payload,
       };
     case ADD_BOOK:
       return {
@@ -44,4 +47,5 @@ export const rootReducer = (state = initialState, action) => {
 };
 
 
-export default rootReducer;
+
+export default dsBookReducer;
